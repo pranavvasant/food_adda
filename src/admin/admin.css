@@ -1,0 +1,137 @@
+
+.admin-container {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    margin: 150px auto;
+    border-radius: 11px;
+    padding: 40px 50px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    /* top-header */
+    .top-header h3 {
+    text-align: center;
+    color: #495d76;
+    }
+    .top-header p {
+    color: #cecfd3;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    }
+    /* top-header */
+    /* form */
+    .user input,
+    .pass input {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 40px;
+    }
+    ::placeholder {
+    color: #9ca5b4;
+    font-size: 12px;
+    }
+    .user i,
+    .pass i {
+    position: relative;
+    top: 31px;
+    right: -10px;
+    color: #3981ed;
+    }
+    /* form */
+    /* button */
+    .btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    }
+    .btn button {
+    width: 100%;
+    border: none;
+    height: 35px;
+    background-color: #277ffd;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    }
+    /* button */
+    p.last {
+    text-align: center;
+    position: relative;
+    bottom: 120px;
+    font-size: 12px;
+    }
+
+.mainFood {
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.food-img {
+    padding: 10px;
+    width: 100px;
+    max-width: 150px;
+    height: 100px;
+}
+
+.food-div {
+    border-radius: 10px;
+    background-color: #e6e6e6;
+    /* margin: 10px; */
+    color: black;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
+    width:50%;
+    margin: 10px auto;
+}
+
+.food-div div{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width:100%;
+    margin: 0 20px;
+}
+.text-bold{
+    font-weight: bold;
+}
+.text-gray{
+    font-weight: #897d7d;
+    font-size: 13px;
+}
+.edit-button{
+    background-color: Blue;
+    color:white;
+    padding:7px;
+    margin:8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-button{
+    background-color: red;
+    color:white;
+    padding:7px;
+    margin:8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.available-div{
+    display: flex;
+    justify-content:  space-around;
+    margin-bottom: 25px;
+}
+
+.add-items {
+    background-color: grey;
+    color:white;
+    padding:7px;
+    margin:8px;
+    border-radius: 5px;
+    cursor: pointer;   
+}

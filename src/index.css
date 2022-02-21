@@ -1,13 +1,178 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.content {
+  width: 100%;
+  height: 90vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+.navbar {
+  font-size: 20px;
+  background-image: linear-gradient(260deg, #1276fe 0%, #9916b7 100%);
+  border: 1px solid black;
+  width: 100%;
+  height: 65px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main-nav {
+  list-style-type: none;
+  display: none;
 }
+
+.nav-links,
+.logo {
+  text-decoration: none;
+  color: rgba(250, 245, 245, 0.7);
+}
+
+.main-nav li {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.logo {
+  display: inline-block;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.navbar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+ .active {
+  display: block;
+} 
+
+ @media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+     justify-content: space-between; 
+    align-items: center;
+  }
+
+  .main-nav {
+    display: flex;
+    margin-right: 30px;
+    flex-direction: row;
+    justify-content: flex-end;
+  } 
+
+  .main-nav li {
+    margin: 0;
+  }
+
+  .nav-links {
+    margin-left: 40px;
+  }
+
+  .logo {
+    margin-top: 0;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .logo:hover,
+  .nav-links:hover {
+    color: #ffffff;
+  }
+} 
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+}
+:root{
+		--font-color: rgb(238,238,238,0.8);
+}
+body {
+  color: var(--font-color);
+		background-image: radial-gradient(circle at 16% 83%, rgba(148, 148, 148,.06) 0%, rgba(148, 148, 148,.06) 50%,rgba(63, 63, 63,.06) 50%, rgba(63, 63, 63,.06) 100%),radial-gradient(circle at 68% 87%, rgba(66, 66, 66,.06) 0%, rgba(66, 66, 66,.06) 50%,rgba(105, 105, 105,.06) 50%, rgba(105, 105, 105,.06) 100%),radial-gradient(circle at 38% 50%, rgba(123, 123, 123,.06) 0%, rgba(123, 123, 123,.06) 50%,rgba(172, 172, 172,.06) 50%, rgba(172, 172, 172,.06) 100%),linear-gradient(90deg, hsl(18,0%,1%),hsl(18,0%,1%));
+	 background-attachment: fixed;
+	 background-repeat: no-repeat;
+	 font-family: 'Noto Sans', sans-serif;
+}
+div.formC{
+  width: 400px;
+	 max-width: 86%;
+	 min-height: 500px;
+	 padding: 1rem;
+	 border-radius: 6px;
+	 background: rgb(225,225,225,.05);
+	 backdrop-filter: blur(4px);
+	 -webkit-backdrop-filter: blur(4px);
+	 box-shadow: 0 8px 10px 0 rgb(0,0,0,.06);
+	 margin: 10vh auto;
+	 overflow: hidden;
+}
+div.formC>.title{
+		text-align: center;
+		margin: 3rem auto;
+}
+div.formC>form{
+  display: block;
+}
+div.formC>form>label{
+		opacity: 60%;
+		font-size: 80%;
+}
+div.formC>form>input, div.formC>form>button{
+		outline: none;
+		border: none;
+		display: block;
+		font-size: 1rem;
+}
+div.formC>form>input{
+		width: 100%;
+		height: 3rem;
+		padding: 0 1rem;
+		color: var(--font-color);
+		background: rgb(0,0,0,.1);
+		border-bottom: 1px solid black;
+		margin: 1rem auto;	
+}
+div.formC>form>input:hover{
+		transition: 400ms;
+		border-bottom: 1px solid var(--font-color);
+}
+div.formC>form>button{
+		cursor: pointer;
+		color: var(--font-color);
+		background: rgb(0,0,0,.5);
+		padding: .6rem 1.4rem;
+		border-radius: 2px;
+}
+div.bottom{
+		font-size: 80%;
+		text-align: center;
+		margin: 5rem auto 1rem auto;
+}
+div.bottom>a{
+		color: var(--font-color);
+		text-decoration: underline;
+}
+@media only screen and (min-width: 768px) {
+		div.formC{
+				padding: 1rem 2rem;
+		}
+		div.formC>form>button{
+				margin: 2rem 0;
+		}
+}
+
