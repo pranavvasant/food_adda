@@ -10,7 +10,6 @@ function AddItem() {
     const [name,setName] = useState('')
     const [price,setPrice] = useState('')
     const [desc,setDesc] = useState('')
-    const [url,setUrl] = useState('')
     const [loading,setLoading] = useState(false)
     const [itsNewItem,setItsNewItem] = useState(null)
 
@@ -24,7 +23,6 @@ function AddItem() {
                 setDesc(data.desc)
                 setName(data.name)
                 setPrice(data.price)
-                setUrl(data.url)
             }).catch((err)=>{
                 openSnackbar(<p>{err}</p>,5000)
             })
@@ -48,8 +46,7 @@ function AddItem() {
         setLoading(true)
         if (itsNewItem){
             dispatch(uploadImageFirebase(image)).then((urlValue)=>{
-                setUrl(urlValue)
-                dispatch(uploadFoodDetails(name,price,desc,url)).then(()=>{
+                dispatch(uploadFoodDetails(name,price,desc,urlValue)).then(()=>{
                     setLoading(false)
                     navigate('/admin')
                 }).catch((err)=>{
@@ -57,12 +54,23 @@ function AddItem() {
                     openSnackbar(<p>{err}</p>,5000)
                 })
             }).catch((err)=>{
-                console.log(err)
+                openSnackbar(<p>{err}</p>,5000)
             })
         }
         else{
-            dispatch(uploadImageFirebase(image)).then((urlValue)=>{
-                setUrl(urlValue)
+            if (image){
+                dispatch(uploadImageFirebase(image)).then((url)=>{
+                    dispatch(updateFoodDetails(params.id,name,price,desc,url)).then(()=>{
+                        setLoading(false)
+                        navigate('/admin')
+                    }).catch((err)=>{
+                        setLoading(false)
+                        openSnackbar(<p>{err}</p>,5000)
+                    })
+                })
+            }
+            else{
+                const url = ''
                 dispatch(updateFoodDetails(params.id,name,price,desc,url)).then(()=>{
                     setLoading(false)
                     navigate('/admin')
@@ -70,7 +78,7 @@ function AddItem() {
                     setLoading(false)
                     openSnackbar(<p>{err}</p>,5000)
                 })
-            })
+            }
         }
     }
 
@@ -79,18 +87,20 @@ function AddItem() {
     }
 
   return (
-    <div className='container'>
-        <form onSubmit={addItemHandler}>
-            <label>Name</label>
-            <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder='Name'/><br/>
-            <label>Descrption</label>
-            <input type="textarea" value={desc} onChange={(e)=>setDesc(e.target.value)} /><br/>
-            <label>Price</label>
-            <input type="text" value={price} onChange={(e)=>setPrice(e.target.value)}/><br/>
-            <label>Image</label>
-            <input type="file" onChange={imageHandler}/><br/>
-            <button>Submit</button>
-        </form>
+    <div className='display-container'>
+        <div className='form-wrap'>
+            <form onSubmit={addItemHandler}>
+                <label className='add-label'>Name</label>
+                <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder='Name'/><br/>
+                <label className='add-label'>Descrption</label>
+                <input type="textarea" value={desc} onChange={(e)=>setDesc(e.target.value)} /><br/>
+                <label className='add-label'>Price</label>
+                <input type="text" value={price} onChange={(e)=>setPrice(e.target.value)}/><br/>
+                <label className='add-label'>Image</label>
+                <input style={{color:"white"}} type="file" onChange={imageHandler}/><br/>
+                <button className='add-button'>Submit</button>
+            </form>
+        </div>
     </div>
   )
 }

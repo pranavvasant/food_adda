@@ -94,7 +94,17 @@ export const getFoodDetails = (id) => async (dispatch)=>{
 
 export const updateFoodDetails = (id,name,desc,price,url) => async(dispacth) =>{
     return new Promise ((resolve,reject)=>{
-        axios.put(`${baseUrl}/food/${id}.json`,{name:name,desc:desc,price:price,url:url}).then((response)=>{
+        const bodyObject = {
+            name:name,
+            desc:desc,
+            price:price
+        }
+        console.log("o",url)
+        if (url){
+            bodyObject.url = url;
+        }
+        console.log("==============",url)
+        axios.put(`${baseUrl}/food/${id}.json`,bodyObject).then((response)=>{
             console.log(response.data)
             resolve()
         }).catch((err)=>{
