@@ -23,13 +23,13 @@ export function CredsContextProvider(props) {
     const [loggedInUser,setloggedInUser] = useState()
 
     const firebaseConfig = {
-        apiKey: "AIzaSyDLEVn7NRNfnWx95NKh6Xy4GiFciXiGN5c",
-        authDomain: "yash4-d4d4f.firebaseapp.com",
-        databaseURL: "https://yash4-d4d4f-default-rtdb.asia-southeast1.firebasedatabase.app",
+        apiKey: process.env.REACT_APP_API_KEY,
+        authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+        databaseURL: process.env.REACT_APP_DATABASEURL,
         projectId: "yash4-d4d4f",
-        storageBucket: "yash4-d4d4f.appspot.com",
+        storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
         messagingSenderId: "258895720068",
-        appId: "1:258895720068:web:cbb01d6e91d6140de15cd1",
+        appId: process.env.REACT_APP_APP_ID,
         measurementId: "G-TNPKCD1H5Y"
         };
     const app = initializeApp(firebaseConfig);
