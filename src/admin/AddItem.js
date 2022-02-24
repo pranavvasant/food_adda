@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { uploadImageFirebase,uploadFoodDetails, getFoodDetails,updateFoodDetails } from '../Action/FoodAction'
 import { useSnackbar } from 'react-simple-snackbar';
 import { useNavigate, useParams } from 'react-router-dom';
+import Spinner from '../layout/spinner/Spinner';
 
 function AddItem() {
 
@@ -83,7 +84,7 @@ function AddItem() {
     }
 
     if (loading){
-        return <p>Loading......</p>
+        return <p>loading....</p>
     }
 
   return (
