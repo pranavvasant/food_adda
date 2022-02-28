@@ -1,7 +1,8 @@
 import axios from "axios";
 import {initializeApp} from "firebase/app";
 import { getStorage, ref,uploadBytesResumable,getDownloadURL } from "firebase/storage";
-import { LIST_FOOD } from "./constant";
+import { useSelector } from "react-redux";
+import { ADD_TO_CART, LIST_FOOD } from "./constant";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -45,6 +46,19 @@ export const uploadFoodDetails = (name,price,desc,url) => async (dispatch) => {
         .catch((err)=>{
             reject(err)
         })
+    })
+}
+
+export const addFoodCart = (id,name,price,quantity) => async (dispatch)=>{
+    const arr = [{
+        id:id,
+        name:name,
+        price:price,
+        quantity:quantity
+    }]
+    dispatch({
+        type : ADD_TO_CART,
+        payload : arr
     })
 }
 
@@ -99,11 +113,9 @@ export const updateFoodDetails = (id,name,desc,price,url) => async(dispacth) =>{
             desc:desc,
             price:price
         }
-        console.log("o",url)
         if (url){
             bodyObject.url = url;
         }
-        console.log("==============",url)
         axios.put(`${baseUrl}/food/${id}.json`,bodyObject).then((response)=>{
             console.log(response.data)
             resolve()

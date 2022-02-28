@@ -1,11 +1,28 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getFoodList } from '../Action/FoodAction'
+import FoodList from '../component/FoodList'
 import '../index.css'
-import CredsContext from '../store/CredsContext'
 
 function Welcome() {
-    const credsCtx = useContext(CredsContext)
+
+    const dispatch = useDispatch()
+    const foods = useSelector(state => state.foods)
+    useEffect(()=>{
+      console.log(foods.length)
+      if(!foods.length){
+        dispatch(getFoodList())
+      }
+    },[])
+
   return (
-    <h1 className='content'>Welcome To Food Adda {credsCtx.loggedInUser}</h1>
+    <div className='main-cust-div'>
+      {foods.map((food)=>{
+        return(
+          <FoodList foods={food}/>
+        )
+      })}
+    </div>
   )
 }
 

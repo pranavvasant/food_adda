@@ -1,7 +1,8 @@
-import { LIST_FOOD } from "../Action/constant"
+import { LIST_FOOD,ADD_TO_CART } from "../Action/constant"
 
 const initialValue = {
-    foods : []
+    foods : [],
+    carts : [],
 }
 
 const foodRedcer = (state=initialValue,action) => {
@@ -10,6 +11,11 @@ const foodRedcer = (state=initialValue,action) => {
             return {
                 ...state,
                 foods:action.payload
+            }
+        case ADD_TO_CART:
+            return {
+                ...state,
+                carts:action.payload
             }
         default:
             return state

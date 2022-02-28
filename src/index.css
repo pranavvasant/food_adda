@@ -176,3 +176,61 @@ div.bottom>a{
 		}
 }
 
+.main-cust-div{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.single-cust-div {
+  margin: 10px;
+  padding: 15px;
+  width: 25%;
+  background-color: rebeccapurple;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 18px;
+  font-weight: 100;
+  /* box-shadow: 5px 10px 8px 10px #888888; */
+}
+
+.cust-food-image {
+  width:  150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding-right: 5px;
+}
+
+.cart-button {
+  width: 100%;
+  cursor: pointer;
+  background-color: powderblue;
+  padding: 5px;
+  margin-top:15px;
+  color: black;
+  font-size: large;
+  border-radius: 20px;
+}
+
+.cart-toggle {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.toggle-value {
+  margin: 0px 10px;
+  padding: 5px 10px;
+  font-size: 25px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: 0px;
+}
+
+.cart-toggle-value{
+  padding: 5px 10px;
+}
